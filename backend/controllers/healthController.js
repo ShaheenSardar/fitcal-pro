@@ -1,37 +1,28 @@
 exports.calculateHealth = (req, res) => {
   try {
-    let { weight, height, age, gender } = req.body;
+    let { weight, height, age, gender, activity } = req.body;
 
-    // Convert to numbers
     weight = Number(weight);
     height = Number(height);
     age = Number(age);
+    activity = Number(activity);
 
-    // Validation
-    if (!weight || !height || !age || !gender) {
+    if (!weight || !height || !age || !gender || !activity) {
       return res.status(400).json({
         success: false,
         message: "All fields are required"
       });
     }
 
-    if (weight <= 0 || height <= 0 || age <= 0) {
-      return res.status(400).json({
-        success: false,
-        message: "Invalid input values"
-      });
-    }
-
-    // Convert height to meters
-    const heightInMeters = height / 100;
+    const h = height / 100;
 
     // BMI
-    const bmi = (weight / (heightInMeters ** 2)).toFixed(2);
+    const bmi = (weight / (h * h)).toFixed(2);
 
-    // Ideal Weight (BMI 22 standard)
-    const idealWeight = (22 * (heightInMeters ** 2)).toFixed(2);
+    // Ideal Weight
+    const idealWeight = (22 * h * h).toFixed(2);
 
-    // BMR Calculation
+    // BMR
     let bmr;
     if (gender === "male") {
       bmr = 10 * weight + 6.25 * height - 5 * age + 5;
@@ -39,24 +30,46 @@ exports.calculateHealth = (req, res) => {
       bmr = 10 * weight + 6.25 * height - 5 * age - 161;
     }
 
-    // TDEE (Sedentary default)
-    const calories = Math.round(bmr * 1.2);
+    // TDEE (activity-based)
+    const maintenanceCalories = Math.round(bmr * activity);
 
-    // Calorie Deficit (for weight loss)
-    const deficitCalories = calories - 500;
+    const deficitCalories = maintenanceCalories - 500;
 
-    return res.status(200).json({
+    // 🥗 Meal Plan Generator
+    let mealPlan;
+
+    if (deficitCalories <= 1500) {
+      mealPlan = {
+        breakfast: "2 boiled eggs + green tea",
+        lunch: "1 roti + chicken curry + salad",
+        dinner: "dal + salad"
+      };
+    } else if (deficitCalories <= 2000) {
+      mealPlan = {
+        breakfast: "oats + milk + banana",
+        lunch: "2 roti + chicken + vegetables",
+        dinner: "grilled chicken + salad"
+      };
+    } else {
+      mealPlan = {
+        breakfast: "paratha + omelette",
+        lunch: "rice + chicken + salad",
+        dinner: "chicken + roti + yogurt"
+      };
+    }
+
+    return res.json({
       success: true,
       data: {
         bmi,
         idealWeight,
-        maintenanceCalories: calories,
-        deficitCalories
+        maintenanceCalories,
+        deficitCalories,
+        mealPlan
       }
     });
 
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
     return res.status(500).json({
       success: false,
       message: "Server error"
