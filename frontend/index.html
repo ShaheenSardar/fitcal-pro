@@ -1,24 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>FitCal Pro</title>
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-<nav>
-  <h1>FitCal Pro</h1>
-  <a href="index.html">Home</a>
-  <a href="calculator.html">Calculator</a>
-  <a href="contact.html">Contact</a>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h1><i class="fa-solid fa-fire"></i> FitCal Pro</h1>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="calculator.html">Calculator</a>
+    <a href="contact.html">Contact</a>
+  </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <h2>Your Fitness Dashboard</h2>
-  <p>Calculate calories, BMI, and ideal weight easily.</p>
-  <button onclick="goToCalc()">Start Now</button>
+  <h2>Transform Your Fitness Journey 💪</h2>
+  <p>Smart calorie tracking, BMI analysis, and meal plans.</p>
+  <button id="startBtn">Start Now</button>
 </section>
 
+<!-- FEATURES -->
+<section class="features">
+
+  <div class="feature-card">
+    <i class="fa-solid fa-weight-scale"></i>
+    <h3>BMI Calculator</h3>
+    <p>Instantly calculate your body mass index.</p>
+  </div>
+
+  <div class="feature-card">
+    <i class="fa-solid fa-fire"></i>
+    <h3>Calorie System</h3>
+    <p>Know your daily calorie needs accurately.</p>
+  </div>
+
+  <div class="feature-card">
+    <i class="fa-solid fa-utensils"></i>
+    <h3>Meal Plans</h3>
+    <p>Get smart meal suggestions based on your goals.</p>
+  </div>
+
+</section>
+
+<!-- STATS SECTION -->
+<section class="stats">
+  <div>
+    <h3>10K+</h3>
+    <p>Users</p>
+  </div>
+  <div>
+    <h3>95%</h3>
+    <p>Accuracy</p>
+  </div>
+  <div>
+    <h3>24/7</h3>
+    <p>Support</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div>
+      <h3>FitCal Pro</h3>
+      <p>Your smart fitness partner.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <p><a href="calculator.html">Calculator</a></p>
+      <p><a href="contact.html">Contact</a></p>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>Email: imshaheensardar.it@gmail.com</p>
+      <p>Location: Pakistan</p>
+    </div>
+
+  </div>
+
+  <p class="copyright">
+    © 2026 FitCal Pro | Built by Shaheen 🚀
+  </p>
+</footer>
+
 <script src="js/app.js"></script>
+<a href="ibw.html">IBW Calculator</a>
+
 </body>
 </html>
