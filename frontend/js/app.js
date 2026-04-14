@@ -10,47 +10,27 @@ async function calculate() {
   const resultDiv = document.getElementById("result");
 
   if (!weight || !height || !age) {
-    resultDiv.innerHTML = "<p style='color:red;'>Please fill all fields</p>";
+    resultDiv.innerHTML = "Fill all fields";
     return;
   }
 
-  try {
-    resultDiv.innerHTML = "<p>Calculating...</p>";
+  const res = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ weight, height, age, gender, activity })
+  });
 
-    const res = await fetch(API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ weight, height, age, gender, activity })
-    });
+  const data = await res.json();
+  const d = data.data;
 
-    const data = await res.json();
-    const d = data.data;
+  localStorage.setItem("fitData", JSON.stringify({
+    bmi: d.bmi,
+    calories: d.maintenanceCalories,
+    deficit: d.deficitCalories,
+    meal: d.mealPlan
+  }));
 
-    // SAVE DATA
-    localStorage.setItem("fitData", JSON.stringify({
-      bmi: d.bmi,
-      calories: d.maintenanceCalories,
-      deficit: d.deficitCalories,
-      meal: d.mealPlan
-    }));
-
-    // SHOW RESULT
-    resultDiv.innerHTML = `
-      <div class="result-card">
-        <p><strong>BMI:</strong> ${d.bmi}</p>
-        <p><strong>Calories:</strong> ${d.maintenanceCalories}</p>
-        <p><strong>Deficit:</strong> ${d.deficitCalories}</p>
-      </div>
-    `;
-
-    // REDIRECT
-    setTimeout(() => {
-      window.location.href = "dashboard.html";
-    }, 1500);
-
-  } catch (err) {
-    resultDiv.innerHTML = "<p style='color:red;'>Server error</p>";
-  }
+  window.location.href = "dashboard.html";
 }

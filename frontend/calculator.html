@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Calculator - FitCal Pro</title>
+  <title>Calculator</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <nav class="navbar">
-  <h1>🔥 FitCal Pro</h1>
+  <h1>🔥 Calculator</h1>
   <div>
     <a href="index.html">Home</a>
     <a href="dashboard.html">Dashboard</a>
@@ -18,40 +17,30 @@
 
 <div class="container">
 
-  <h2>Fitness Calculator</h2>
+  <h2>Enter Your Fitness Data</h2>
 
-  <div class="grid-2">
+  <div class="card">
 
-    <!-- INPUT -->
-    <div class="card">
-      <h3>Enter Details</h3>
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+    <input type="number" id="age" placeholder="Age">
 
-      <input type="number" id="weight" placeholder="Weight (kg)">
-      <input type="number" id="height" placeholder="Height (cm)">
-      <input type="number" id="age" placeholder="Age">
+    <select id="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
 
-      <select id="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
+    <select id="activity">
+      <option value="1.2">Sedentary</option>
+      <option value="1.375">Light</option>
+      <option value="1.55">Moderate</option>
+      <option value="1.725">Active</option>
+    </select>
 
-      <select id="activity">
-        <option value="1.2">Sedentary</option>
-        <option value="1.375">Light</option>
-        <option value="1.55">Moderate</option>
-        <option value="1.725">Active</option>
-      </select>
+    <!-- IMPORTANT BUTTON -->
+    <button onclick="calculate()">Calculate</button>
 
-      <button onclick="calculate()">Calculate</button>
-    </div>
-
-    <!-- RESULT -->
-    <div class="card">
-      <h3>Results</h3>
-      <div id="result">
-        <p>Fill details and click calculate</p>
-      </div>
-    </div>
+    <div id="result"></div>
 
   </div>
 
