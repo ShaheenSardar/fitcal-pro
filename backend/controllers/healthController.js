@@ -16,13 +16,20 @@ exports.calculateHealth = (req, res) => {
 
     const h = height / 100;
 
-    // BMI
+    // ✅ BMI
     const bmi = (weight / (h * h)).toFixed(2);
 
-    // Ideal Weight
+    // ✅ BMI Category
+    let bmiCategory = "";
+    if (bmi < 18.5) bmiCategory = "Underweight";
+    else if (bmi < 25) bmiCategory = "Normal";
+    else if (bmi < 30) bmiCategory = "Overweight";
+    else bmiCategory = "Obese";
+
+    // ✅ Ideal Weight
     const idealWeight = (22 * h * h).toFixed(2);
 
-    // BMR
+    // ✅ BMR
     let bmr;
     if (gender === "male") {
       bmr = 10 * weight + 6.25 * height - 5 * age + 5;
@@ -30,12 +37,17 @@ exports.calculateHealth = (req, res) => {
       bmr = 10 * weight + 6.25 * height - 5 * age - 161;
     }
 
-    // TDEE (activity-based)
+    // ✅ TDEE (Activity-based)
     const maintenanceCalories = Math.round(bmr * activity);
 
+    // ✅ Deficit
     const deficitCalories = maintenanceCalories - 500;
 
-    // 🥗 Meal Plan Generator
+    // ✅ Weight loss estimation
+    const weeklyLoss = 0.5; // kg
+    const estimatedDays = 30; // simple estimate
+
+    // ✅ Meal Plan
     let mealPlan;
 
     if (deficitCalories <= 1500) {
@@ -62,9 +74,11 @@ exports.calculateHealth = (req, res) => {
       success: true,
       data: {
         bmi,
+        bmiCategory,
         idealWeight,
         maintenanceCalories,
         deficitCalories,
+        estimatedDays,
         mealPlan
       }
     });
