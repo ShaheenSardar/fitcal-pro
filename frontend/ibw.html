@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ideal Body Weight Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h1>🔥 FitCal Pro</h1>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="calculator.html">Calculator</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- TITLE -->
+  <h2>Ideal Body Weight (IBW) Calculator</h2>
+
+  <!-- DESCRIPTION -->
+  <div class="info-box">
+    <p>
+      Calculates Ideal Body Weight using the Devine formula and Adjusted Body Weight for obese patients.
+    </p>
+  </div>
+
+  <!-- INPUT CARD -->
+  <div class="card">
+
+    <h3>Enter Patient Details</h3>
+
+    <label>Sex</label>
+    <select id="sex">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <label>Height (inches)</label>
+    <input type="number" id="height" placeholder="60 - 84">
+
+    <label>Actual Body Weight (lbs)</label>
+    <input type="number" id="weight" placeholder="Optional">
+
+    <button onclick="calculateIBW()">Calculate</button>
+
+  </div>
+
+  <!-- RESULT -->
+  <div id="result" class="result-card"></div>
+
+  <!-- INFO SECTIONS -->
+  <div class="info-grid">
+
+    <div class="info-card">
+      <h4>When to Use</h4>
+      <p>Use for medication dosing, ventilator settings, and clinical estimation.</p>
+    </div>
+
+    <div class="info-card">
+      <h4>Pearls / Pitfalls</h4>
+      <p>Less accurate under 5 feet. Adjust manually if needed.</p>
+    </div>
+
+    <div class="info-card">
+      <h4>Why Use</h4>
+      <p>Helps determine safe and effective dosing strategies.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/ibw.js"></script>
+
+</body>
+</html>

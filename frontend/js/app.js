@@ -1,5 +1,9 @@
 const API_URL = "http://localhost:5000/api/v1/health/calculate";
 
+function goToCalc() {
+  window.location.href = "calculator.html";
+}
+
 async function calculate() {
   const weight = document.getElementById("weight").value;
   const height = document.getElementById("height").value;
@@ -31,20 +35,27 @@ async function calculate() {
     resultDiv.innerHTML = `
       <div class="result-card">
         <h3>Results</h3>
-        <p><strong>BMI:</strong> ${d.bmi}</p>
-        <p><strong>Ideal Weight:</strong> ${d.idealWeight} kg</p>
-        <p><strong>Calories (TDEE):</strong> ${d.maintenanceCalories}</p>
-        <p><strong>Deficit Calories:</strong> ${d.deficitCalories}</p>
+        <p>BMI: ${d.bmi}</p>
+        <p>Ideal Weight: ${d.idealWeight} kg</p>
+        <p>Calories: ${d.maintenanceCalories}</p>
+        <p>Deficit: ${d.deficitCalories}</p>
 
         <h3>Meal Plan</h3>
-        <p><strong>Breakfast:</strong> ${d.mealPlan.breakfast}</p>
-        <p><strong>Lunch:</strong> ${d.mealPlan.lunch}</p>
-        <p><strong>Dinner:</strong> ${d.mealPlan.dinner}</p>
+        <p>${d.mealPlan.breakfast}</p>
+        <p>${d.mealPlan.lunch}</p>
+        <p>${d.mealPlan.dinner}</p>
       </div>
     `;
-
   } catch (err) {
-    resultDiv.innerHTML = "<p style='color:red;'>Error connecting server</p>";
-    console.error(err);
+    resultDiv.innerHTML = "<p style='color:red;'>Server error</p>";
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("startBtn");
+
+  if (btn) {
+    btn.addEventListener("click", () => {
+      window.location.href = "calculator.html";
+    });
+  }
+});
