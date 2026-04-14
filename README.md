@@ -1,38 +1,52 @@
-A full-stack fitness and calorie calculator web application that helps users calculate **BMI, Ideal Weight, Maintenance Calories, and Calorie Deficit**.
+# 🔥 FitCal Pro
 
-This project is built for learning **Full Stack Development + DevOps deployment (AWS EC2)**.
-
----
-
-## 📌 Features
-
-* ✅ BMI (Body Mass Index) Calculator
-* ✅ Ideal Weight Calculation
-* ✅ Daily Calorie Needs (BMR + TDEE)
-* ✅ Calorie Deficit for Weight Loss
-* ✅ Clean UI with multi-page navigation
-* ✅ REST API backend
-* ✅ Ready for cloud deployment (AWS EC2)
+A full-stack fitness web application that helps users calculate BMI, daily calories, ideal body weight, and generate smart meal plans.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Features
 
-### Frontend:
+### 🧮 Calculator System
 
-* HTML5
-* CSS3
-* JavaScript (Vanilla JS)
+* BMI Calculation
+* Ideal Weight Calculation
+* Daily Calorie Needs (TDEE)
+* Calorie Deficit for Weight Loss
+* Activity-Based Calorie Adjustment
 
-### Backend:
+### 🍽️ Meal Plan Generator
 
-* Node.js
-* Express.js
-* CORS
+* Automatic meal suggestions
+* Based on calorie goals
+* Includes breakfast, lunch, and dinner
+
+### ❤️ IBW Calculator (Medical Style)
+
+* Ideal Body Weight (Devine Formula)
+* Adjusted Body Weight
+* Clean structured UI (MDCalc-style layout)
+
+### 📊 Dashboard
+
+* Displays:
+
+  * BMI
+  * Calories
+  * Deficit
+  * Meal Plan
+* Data saved using LocalStorage
+
+### 🎨 UI/UX
+
+* Modern SaaS-style design
+* Responsive layout (Grid + Flexbox)
+* Icons using Font Awesome
+* Professional landing page
+* Structured footer & navigation
 
 ---
 
-## 📁 Project Structure
+## 🗂️ Project Structure
 
 ```
 fitcal-pro/
@@ -40,60 +54,58 @@ fitcal-pro/
 ├── frontend/
 │   ├── index.html
 │   ├── calculator.html
-│   ├── contact.html
+│   ├── dashboard.html
+│   ├── ibw.html
 │   ├── css/
 │   │   └── style.css
-│   ├── js/
-│   │   └── app.js
+│   └── js/
+│       ├── app.js
+│       ├── dashboard.js
+│       └── ibw.js
 │
 ├── backend/
 │   ├── server.js
-│   ├── routes/
-│   │   └── healthRoutes.js
-│   ├── controllers/
-│   │   └── healthController.js
-│   └── package.json
+│   └── controllers/
+│       └── healthController.js
 │
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ Technologies Used
 
-### 1️⃣ Clone the Repository
+### Frontend
 
-```
-git clone https://github.com/your-username/fitcal-pro.git
-cd fitcal-pro
-```
+* HTML5
+* CSS3 (Grid + Flexbox)
+* JavaScript (Vanilla JS)
+
+### Backend
+
+* Node.js
+* Express.js
 
 ---
 
-### 2️⃣ Setup Backend
+## ▶️ How to Run Locally
 
-```
+### 1️⃣ Start Backend
+
+```bash
 cd backend
 npm install
 node server.js
 ```
 
-Backend will run on:
+### 2️⃣ Start Frontend
 
-```
-http://localhost:5000
-```
-
----
-
-### 3️⃣ Run Frontend
-
-```
-cd ../frontend
-python3 -m http.server 3000
+```bash
+cd frontend
+npx serve -l 3000
 ```
 
-Open in browser:
+### 3️⃣ Open in Browser
 
 ```
 http://localhost:3000
@@ -101,95 +113,52 @@ http://localhost:3000
 
 ---
 
-## 🔗 API Endpoint
-
-### POST /api/v1/health/calculate
-
-#### Request Body:
+## 🌐 API Endpoint
 
 ```
+POST /api/v1/health/calculate
+```
+
+### Request Body:
+
+```json
 {
   "weight": 70,
   "height": 170,
-  "age": 22,
-  "gender": "male"
-}
-```
-
-#### Response:
-
-```
-{
-  "success": true,
-  "data": {
-    "bmi": "24.22",
-    "idealWeight": "63.58",
-    "maintenanceCalories": 2000,
-    "deficitCalories": 1500
-  }
+  "age": 25,
+  "gender": "male",
+  "activity": 1.55
 }
 ```
 
 ---
 
-## ☁️ Deployment (AWS EC2)
-
-### Steps:
-
-1. Launch Ubuntu EC2 Instance
-2. Connect via SSH
-3. Install Node.js & npm
-4. Clone repository
-5. Run backend server
-6. Serve frontend
-
----
-
-## 🚀 Future Improvements
+## 💡 Future Improvements
 
 * 🔐 User Authentication (Login/Register)
-* 📊 Dashboard with charts
-* 🗄️ Database integration (MongoDB)
-* ⚛️ React Frontend
-* 🐳 Docker + CI/CD pipeline
-
----
-
-## 🎯 Learning Goals
-
-This project helps in:
-
-* Full Stack Development
-* API Design & Integration
-* Linux & Server Management
-* Git & GitHub Workflow
-* Cloud Deployment (AWS EC2)
+* 🗄️ Database Integration (MongoDB)
+* 📈 Charts & Analytics Dashboard
+* ☁️ Deployment on AWS EC2
+* 🔄 CI/CD with GitHub Actions
 
 ---
 
 ## 👨‍💻 Author
 
 **Shaheen**
-Aspiring Cloud & DevOps Engineer 🚀
+📧 [imshaheensardar.it@gmail.com](mailto:imshaheensardar.it@gmail.com)
+📍 Pakistan
 
 ---
 
-## ⭐ Support
+## ⭐ Project Status
 
-If you like this project:
-
-* ⭐ Star the repository
-* 🍴 Fork it
-* 📢 Share with others
+🚧 In Progress (Actively Improving & Scaling)
 
 ---
 
-## 📞 Contact
+## 💸 Goal
 
-For collaboration or freelance work:
-
-* 📧 Email: [imshaheensardar.it@gmail.com](mailto:imshaheensardar.it@gmail.com)
+This project is being built as a **portfolio + freelance-ready SaaS product** to start earning through remote work and DevOps/cloud opportunities.
 
 ---
-
-💡 *This project is part of my journey to become a professional Cloud & DevOps Engineer and start earning through freelancing.*
