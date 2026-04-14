@@ -4,6 +4,32 @@ A full-stack fitness web application that helps users calculate BMI, daily calor
 
 ---
 
+## 🎯 Project Purpose
+
+This project is built primarily for **AWS, DevOps, and Cloud Engineering practice**.
+
+It demonstrates:
+
+* Deploying a full-stack application on AWS EC2
+* Managing frontend and backend services
+* Working with Linux, Git, and server environments
+* Understanding real-world deployment workflows
+
+The goal is to simulate a **production-like environment** and gain hands-on experience required for remote jobs and freelancing.
+
+---
+
+## ☁️ Cloud Focus
+
+Planned deployment includes:
+
+* AWS EC2 (Application Hosting)
+* Nginx (Reverse Proxy)
+* PM2 (Process Management)
+* GitHub Actions (CI/CD)
+
+---
+
 ## 🚀 Features
 
 ### 🧮 Calculator System
@@ -20,11 +46,11 @@ A full-stack fitness web application that helps users calculate BMI, daily calor
 * Based on calorie goals
 * Includes breakfast, lunch, and dinner
 
-### ❤️ IBW Calculator (Medical Style)
+### ❤️ IBW Calculator
 
 * Ideal Body Weight (Devine Formula)
 * Adjusted Body Weight
-* Clean structured UI (MDCalc-style layout)
+* Clean structured UI (medical-style layout)
 
 ### 📊 Dashboard
 
@@ -159,6 +185,6 @@ POST /api/v1/health/calculate
 
 ## 💸 Goal
 
-This project is being built as a **portfolio + freelance-ready SaaS product** to start earning through remote work and DevOps/cloud opportunities.
+This project is being built as a **portfolio + freelance-ready SaaS product** to start earning through remote work and cloud engineering opportunities.
 
 ---
